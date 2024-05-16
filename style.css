@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+header{
+    text-align: center;
+    margin: 20px;
+    color: beige;
+}
+body{
+    background-color: darkseagreen;
+}
+.main-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.display-area{
+    
+    height: 100px;
+    background-color: black;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display{
+    background-color: lightslategrey;
+    height: 80px;
+    width: 95%;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: end;
+    border: solid white 2px;
+}
+
+.display-user-output{
+    height: 50%;
+    width: 95%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border:1px solid yellow;
+    border:0 solid transparent;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+.display-user-input{
+    height: 50%;
+    width: 95%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border:0 solid transparent;
+}
+
+.button-area{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
+}
+
+button{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #616161;
+    color: #DFDFDF;
+    border: solid transparent 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+    gap: 10px;
+}
+
+#equal{
+    border-radius: 20px;
+    width: 105px;
+    margin-left: 10px;
+    height: 45px;
+}
+
+.row-5{
+    display: flex;
+    gap: 8px;
+}
