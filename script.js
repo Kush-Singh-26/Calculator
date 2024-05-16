@@ -1,8 +1,8 @@
-let total = 0;
 let value1 = '';
 let value2 = '';
 let curr_input;
 let operator = '';
+let operator_value = '';
 
 const input_display = document.querySelector(".display-user-input");
 const output_display = document.querySelector(".display-user-output");
@@ -26,6 +26,17 @@ function divide(a, b) {
         return a / b;
 }
 
+function power(a, b){
+    return (Math.pow(a,b));
+}
+
+function root(a,b){
+    if(b <= 0)
+        return ("ERROR");
+    else
+        return (Math.pow(b,1/a));
+}
+
 const numberButton = document.querySelectorAll(".number");
 const controlButton = document.querySelectorAll(".control");
 const operatorButton = document.querySelectorAll(".operator");
@@ -45,7 +56,8 @@ function handleClick(button) {
         }
     } else if (curr_input.includes("operator")) {
         if (value1 !== '') {
-            operator = button.textContent;
+            operator = button.value;
+            operator_value = button.textContent;
             display(value1);
         }
     } else if (curr_input.includes("equal")) {
@@ -63,7 +75,7 @@ function handleClick(button) {
 
 [numberButton, controlButton, operatorButton, equalButton, decimalButton].forEach(buttons => {
     buttons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             handleClick(button);
         });
     });
@@ -75,7 +87,7 @@ function displayNumber(num) {
 
 function display(value) {
     if (operator) {
-        output_display.textContent = `${value1} ${operator} ${value2}`;
+        output_display.textContent = `${value1} ${operator_value} ${value2}`;
     } else {
         output_display.textContent = value1;
     }
@@ -86,7 +98,6 @@ function clearAll() {
     value1 = '';
     value2 = '';
     operator = '';
-    total = 0;
     displayNumber('');
     output_display.textContent = '';
 }
@@ -107,29 +118,35 @@ function backspace() {
 function operate() {
     let num1 = parseFloat(value1);
     let num2 = parseFloat(value2);
-    let result;
+    let ans;
 
     switch (operator) {
         case '+':
-            result = sum(num1, num2);
+            ans = sum(num1, num2);
             break;
         case '-':
-            result = difference(num1, num2);
+            ans = difference(num1, num2);
             break;
         case 'X':
-            result = product(num1, num2);
+            ans = product(num1, num2);
             break;
         case '/':
-            result = divide(num1, num2);
+            ans = divide(num1, num2);
             break;
-        default:
-            result = "ERROR";
-    }
+        case '^':
+            ans = power(num1, num2);
+            break;
+        case 'root':
+            ans = root(num1, num2);
+            break;
 
-    total = result;
-    output_display.textContent = `${value1} ${operator} ${value2} = ${result}`;
-    value1 = result.toString();
+        default:
+            ans = "ERROR";
+    }
+    ans = ans.toFixed(2);
+    output_display.textContent = `${value1} ${operator_value} ${value2}`;
+    value1 = ans.toString();
     value2 = '';
     operator = '';
-    displayNumber(result);
+    displayNumber(ans);
 }

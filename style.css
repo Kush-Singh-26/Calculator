@@ -1,7 +1,6 @@
 *{
     padding: 0;
     margin: 0;
-    
 }
 header{
     text-align: center;
@@ -54,7 +53,7 @@ body{
 }
 
 .display-user-output{
-    height: 50%;
+    height: 40%;
     width: 95%;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -67,7 +66,7 @@ body{
 }
 
 .display-user-input{
-    height: 50%;
+    height: 60%;
     width: 95%;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -75,7 +74,7 @@ body{
     justify-content: end;
     align-items: center;
     border:0 solid transparent;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .button-area{
@@ -106,14 +105,6 @@ button{
     gap: 10px;
 }
 
-#equal{
-    border-radius: 20px;
-    width: 105px;
-    margin-left: 10px;
-    height: 45px;
-}
-
-.row-5{
-    display: flex;
-    gap: 8px;
+.row-1{
+    align-self: flex-end;
 }
