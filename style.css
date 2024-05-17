@@ -1,7 +1,9 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: "Graduate", serif;
+    font-family: "Stardos Stencil", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 header{
     text-align: center;
