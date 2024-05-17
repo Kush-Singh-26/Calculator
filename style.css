@@ -109,3 +109,14 @@ button{
 .row-1{
     align-self: flex-end;
 }
+
+footer{
+    text-align: center;
+    background-color: rgb(red, green, blue);
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: bold;
+    color: blanchedalmond;
+    
+}

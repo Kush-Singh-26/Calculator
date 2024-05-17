@@ -5,6 +5,7 @@ let operator = '';
 let operator_value = '';
 let round = '';
 
+document.addEventListener('keydown',handleKeyPress);
 const input_display = document.querySelector(".display-user-input");
 const output_display = document.querySelector(".display-user-output");
 
@@ -44,6 +45,7 @@ const operatorButton = document.querySelectorAll(".operator");
 const equalButton = document.querySelectorAll(".equal");
 const decimalButton = document.querySelectorAll(".decimal");
 const signButton = document.querySelectorAll(".sign");
+const delButton = document.querySelectorAll(".del");
 
 
 function handleClick(button) {
@@ -72,12 +74,11 @@ function handleClick(button) {
             operate();
         }
     } else if (curr_input.includes("control")) {
-        if (button.id === "AC") {
             clearAll();
-        } else if (button.id === "del") {
+    } else if (curr_input.includes("del")) {
             backspace();
-        }
-    } else if (curr_input.includes("sign")) {
+
+    }else if (curr_input.includes("sign")) {
         if(value1 !== '' && operator === ''){
             value1 = parseFloat((value1) * -1).toString();
             display(value1);}
@@ -88,7 +89,27 @@ function handleClick(button) {
 
 }
 
-[numberButton, controlButton, operatorButton, equalButton, decimalButton, signButton].forEach(buttons => {
+function handleKeyPress(e){
+    let key = e.key;
+    let buttons = document.querySelectorAll("button");
+    if(key === "Enter")
+        handleClick(document.querySelector(".equal"));
+    
+    else if(key === "Backspace")
+        handleClick(document.querySelector(".del"));
+    else if(key === "*")
+        handleClick(document.querySelector("#multiply"));
+
+    else{
+    buttons.forEach(button => {
+        if(button.textContent === key)
+            handleClick(button);
+        
+})
+    }
+}
+
+[numberButton, controlButton, operatorButton, equalButton, decimalButton, signButton, delButton].forEach(buttons => {
     buttons.forEach(button => {
         button.addEventListener('click', function () {
             handleClick(button);
